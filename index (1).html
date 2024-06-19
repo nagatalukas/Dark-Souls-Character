@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dark Souls Character Builder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Dark Souls Character Builder</h1>
+            <nav>
+                <ul>
+                    <li><a href="#dark-souls-1-calculator">Dark Souls 1</a></li>
+                    <li><a href="#dark-souls-2-calculator">Dark Souls 2</a></li>
+                    <li><a href="#dark-souls-3-calculator">Dark Souls 3</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Bem Vindo ao Dark Souls Character Builder!</h2>
+            <p>Projetinho da Arlimar pra ganhar nota.</p>
+            <a href="#dark-souls-1-calculator" class="btn">Começe aqui</a>
+        </div>
+    </section>
+
+    <section id="dark-souls-1-calculator" class="section">
+        <div class="container">
+            <div class="calculator-container">
+                <h2>Dark Souls 1 Calculator</h2>
+                <form id="build-form">
+                    <label for="class">Class</label>
+                    <select id="class" name="class" onchange="setClassAttributes()">
+                        <option value="warrior">Warrior</option>
+                        <option value="knight">Knight</option>
+                        <option value="wanderer">Wanderer</option>
+                        <option value="thief">Thief</option>
+                        <option value="bandit">Bandit</option>
+                        <option value="hunter">Hunter</option>
+                        <option value="sorcerer">Sorcerer</option>
+                        <option value="pyromancer">Pyromancer</option>
+                        <option value="cleric">Cleric</option>
+                        <option value="deprived">Deprived</option>
+                    </select>
+
+                    <label for="level">Level</label>
+                    <input type="number" id="level" name="level" min="1" max="99" value="1" readonly>
+
+                    <div class="stats-container">
+                        <div class="stat">
+                            <label for="vitality">Vitality</label>
+                            <input type="number" id="vitality" name="vitality" min="1" max="99" value="1" required>
+                        </div>
+                        <div class="stat">
+                            <label for="attunement">Attunement</label>
+                            <input type="number" id="attunement" name="attunement" min="1" max="99" value="1" required>
+                        </div>
+                        <div class="stat">
+                            <label for="endurance">Endurance</label>
+                            <input type="number" id="endurance" name="endurance" min="1" max="99" value="1" required>
+                        </div>
+                        <div class="stat">
+                            <label for="strength">Strength</label>
+                            <input type="number" id="strength" name="strength" min="1" max="99" value="1" required>
+                        </div>
+                        <div class="stat">
+                            <label for="dexterity">Dexterity</label>
+                            <input type="number" id="dexterity" name="dexterity" min="1" max="99" value="1" required>
+                        </div>
+                        <div class="stat">
+                            <label for="resistance">Resistance</label>
+                            <input type="number" id="resistance" name="resistance" min="1" max="99" value="1" required>
+                        </div>
+                        <div class="stat">
+                            <label for="intelligence">Intelligence</label>
+                            <input type="number" id="intelligence" name="intelligence" min="1" max="99" value="1" required>
+                        </div>
+                        <div class="stat">
+                            <label for="faith">Faith</label>
+                            <input type="number" id="faith" name="faith" min="1" max="99" value="1" required>
+                        </div>
+                    </div>
+
+                    <div class="ring-container">
+                        <div class="ring">
+                            <label for="ring1">Ring 1</label>
+                            <select id="ring1" name="ring1" class="ring-select" onchange="updateRingImage('ring1')">
+                                <option value="none">None</option>
+                                <option value="havel">Havel's Ring (+50% Equip Load)</option>
+                                <option value="favor">Ring of Favor and Protection (+20% HP, Stamina, Equip Load)</option>
+                                <option value="steel">Ring of Steel Protection (+50 Physical Defense)</option>
+                                <option value="clarity">Ring of Cloranthy (+20/s Stamina Regen)</option>
+                            </select>
+                            <img id="ring1Image" src="" alt="Ring" class="ring-image">
+                        </div>
+                        <div class="ring">
+                            <label for="ring2">Ring 2</label>
+                            <select id="ring2" name="ring2" class="ring-select" onchange="updateRingImage('ring2')">
+                                <option value="none">None</option>
+                                <option value="havel">Havel's Ring (+50% Equip Load)</option>
+                                <option value="favor">Ring of Favor and Protection (+20% HP, Stamina, Equip Load)</option>
+                                <option value="steel">Ring of Steel Protection (+50 Physical Defense)</option>
+                                <option value="clarity">Ring of Cloranthy (+20/s Stamina Regen)</option>
+                            </select>
+                            <img id="ring2Image" src="" alt="Ring" class="ring-image">
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn" onclick="calculateBuild()">Calculate Build</button>
+                </form>
+
+                <div class="results-container">
+                    <div class="result" id="result">Your total level will appear here.</div>
+                    <div class="result" id="souls-result">Soul Cost: </div>
+                    <div class="result" id="hp-result">HP: </div>
+                    <div class="result" id="stamina-result">Stamina: </div>
+                    <div class="result" id="equipload-result">Equip Load: </div>
+                </div>
+            </div>
+
+            <div class="equipment-container">
+                <h2>Equipment</h2>
+                <form id="equipment-form">
+                    <label for="weapon">Weapon</label>
+                    <select id="weapon" name="weapon" class="ring-select" onchange="updateWeaponImage()">
+                        <option value="none">None</option>
+                        <option value="longsword">Longsword (10 Dex/10 Str)</option>
+                        <option value="broadsword">Broadsword (10 Dex/10 Str)</option>
+                        <option value="scimitar">Scimitar (13 Dex/7 Str)</option>
+                        <option value="bandits_knife">Bandit's Knife (12 Dex/6 Str)</option>
+                        <option value="battleaxe">Battleaxe (8 Dex/12 Str)</option>
+                        <option value="shortsword">Shortsword (10 Dex/8 Str)</option>
+                        <option value="short_bow">Short Bow (12 Dex/7 Str)</option>
+                        <option value="dagger">Dagger (8 Dex/5 Str)</option>
+                        <option value="sorcerers_catalyst">Sorcerer's Catalyst (10 Int/6 Str)</option>
+                        <option value="hand_axe">Hand Axe (8 Dex/8 Str)</option>
+                        <option value="mace">Mace (12 Str)</option>
+                        <option value="club">Club (10 Dex/11 Str)</option>
+                    </select>
+                    <img id="weaponImage" src="" alt="Weapon" class="ring-image">
+
+                    <label for="talisman">Talisman</label>
+                    <select id="talisman" name="talisman" class="ring-select" onchange="updateTalismanImage()">
+                        <option value="none">None</option>
+                        <option value="darkmoon_talisman">Darkmoon Talisman (4 Str/24 Fth)</option>
+                        <option value="canvas_talisman">Canvas Talisman (4 Str/14 Fth)</option>
+                        <option value="ivory_talisman">Ivory Talisman (4 Str/16 Fth)</option>
+                    </select>
+                    <img id="talismanImage" src="" alt="Talisman" class="ring-image">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="dark-souls-2-calculator" class="section">
+        <div class="container">
+            <h2>Dark Souls 2 Calculator</h2>
+            <p>Coming soon!</p>
+        </div>
+    </section>
+
+    <section id="dark-souls-3-calculator" class="section">
+        <div class="container">
+            <h2>Dark Souls 3 Calculator</h2>
+            <p>Coming soon!</p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

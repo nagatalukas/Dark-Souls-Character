@@ -1,0 +1,222 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #222;
+    color: #fff;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+nav {
+    margin-top: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: inline-block;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffc107;
+}
+
+.hero {
+    background-image: url('https://www.baltana.com/files/wallpapers-2/Dark-Souls-HD-Photos-03896.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #444;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+    border: 2px solid #fff;
+}
+
+.btn:hover {
+    background-color: #555;
+    border: 2px solid #ffc107;
+}
+
+.section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.calculator-container,
+.equipment-container {
+    background-color: #333;
+    padding: 30px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 1.8em;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.stats-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.stat {
+    width: calc(50% - 10px);
+    margin-bottom: 20px;
+}
+
+.ring-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.ring {
+    display: flex;
+    align-items: center;
+}
+
+.ring-select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.ring-image {
+    margin-left: 10px;
+    max-width: 80px;
+}
+
+.results-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.result {
+    width: calc(50% - 10px);
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.equipment-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.equipment-container .container {
+    width: calc(50% - 10px);
+    margin-bottom: 30px;
+}
+
+.equipment-container label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.equipment-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+/* Estilos para a seção de Dark Souls 2 e 3 */
+.section .container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 700px;
+}
+
+.section .container p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px #000;
+    text-align: center;
+}
